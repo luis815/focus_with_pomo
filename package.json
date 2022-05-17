@@ -1,0 +1,29 @@
+{
+	"name": "focus_with_pomo",
+	"version": "1.0.0",
+	"description": "Boilerplate for freelance templates and jobs.",
+	"main": "index.js",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"prettier": "prettier --write \"**/*.{js,css,html,jsx,json}\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/luis815/focus_with_pomo.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/luis815/focus_with_pomo/issues"
+	},
+	"homepage": "https://github.com/luis815/focus_with_pomo#readme",
+	"dependencies": {
+		"sass": "^1.51.0",
+		"vite": "^2.9.9"
+	},
+	"devDependencies": {
+		"prettier": "^2.6.2"
+	}
+}
