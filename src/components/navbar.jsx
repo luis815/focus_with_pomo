@@ -9,7 +9,7 @@ export default () => {
 					<Link to="/">Home</Link>
 				</li>
 				<li>
-					<Link to="/settings"></Link>
+					<Link to="/settings">Settings</Link>
 				</li>
 			</ul>
 			<ul>
