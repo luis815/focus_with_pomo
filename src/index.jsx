@@ -10,8 +10,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<BrowserRouter>
 			<Routes>
+				<Route path="/settings" element={<Settings />} />
 				<Route path="/" element={<Home />} />
-				<Route path="settings" element={<Settings />} />
+				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</BrowserRouter>
 	</StrictMode>
