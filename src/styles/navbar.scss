@@ -1,11 +1,20 @@
-$bar-bg: navy;
-$bar-color: white;
+$monochrome-0: #f2f2f2;
+$monochrome-1: #e6e6e6;
+$monochrome-2: #d9d9d9;
+$monochrome-3: #cccccc;
+
+$color-0: black;
+
+$bar-mobile-height: 4rem;
+
+$transition-duration: 0.25s;
+
+$bar-bg: #f2f2f2;
+$bar-color: black;
 $bar-height: 4rem;
 $bar-padding: 0.5rem 1rem;
 
-$burger-color: white;
-
-$transition-duration: 0.25s;
+$burger-color: black;
 
 nav {
 	position: fixed;
@@ -14,18 +23,23 @@ nav {
 	right: 0;
 
 	.directory {
-		background-color: $bar-bg;
-		color: $bar-color;
-		display: grid;
-		place-items: center;
-		padding: 2rem 0;
+		background-color: $monochrome-1;
+		color: $color-0;
+
+		display: flex;
+		flex-direction: column;
+
+		padding: 2rem 4rem;
 		border-top-left-radius: 2rem;
 		border-top-right-radius: 2rem;
+
 		transform: translateY(100%);
 		transition: all $transition-duration ease-in-out;
+		opacity: 0;
 
 		&.active {
 			transform: translateY(0);
+			opacity: 1;
 		}
 
 		ul {
@@ -33,68 +47,54 @@ nav {
 			padding: 0;
 			margin: 0;
 
-            li:not(:last-of-type) {
-                margin-bottom: 1rem;
-            }
-		}
-
-		.pages {
-			li {
-				a {
-					text-decoration: none;
-					color: $bar-color;
-					display: block;
-					text-align: center;
-                    font-size: 1.25rem;
-				}
-			}
-		}
-
-		span {
-			display: block;
-			height: 2px;
-			width: 100%;
-			margin: 1rem 0;
-			background-color: $burger-color;
-            width: 75%;
-		}
-
-		.actions {
 			li {
 				display: flex;
 				flex-direction: column;
 
+				&:not(:last-of-type)::after {
+					content: "";
+					display: block;
+					height: 2px;
+					background-color: $monochrome-2;
+					margin: 1rem 0;
+				}
+
 				a {
-                    text-decoration: none;
-                    text-align: center;
-					padding: 0.25rem 2rem;
+					text-decoration: none;
+					text-align: center;
+					font-size: 1.25rem;
+					color: $color-0;
+					display: block;
+				}
+
+				a.button {
 					background-color: transparent;
-					color: $bar-color;
-					border: 1px solid $burger-color;
+					border: 1px solid $color-0;
 					border-radius: 99rem;
-                    font-size: 1.25rem;
+					padding: 0.5rem 0;
 				}
 			}
 		}
 	}
 
 	.bar {
-		background-color: $bar-bg;
-		color: white;
-		height: $bar-height;
+		background-color: $monochrome-0;
+		color: $color-0;
+
+		height: $bar-mobile-height;
+		padding: 0.5rem 1rem;
+
 		display: flex;
 		flex-direction: row;
-		padding: $bar-padding;
 		position: relative;
-		border-top: 1px solid $burger-color;
 
 		.brand {
 			display: flex;
 			flex-direction: row;
 
-            img {
-                height: 100%;
-            }
+			img {
+				height: 100%;
+			}
 
 			.text {
 				display: flex;
@@ -113,7 +113,8 @@ nav {
 		.burger {
 			aspect-ratio: 1;
 			margin: 0.5rem 0.5rem 0.5rem auto;
-			border: 1px solid $burger-color;
+			border: 1px solid $color-0;
+			border-radius: 0.75rem;
 
 			position: relative;
 
@@ -127,7 +128,7 @@ nav {
 			span::after {
 				height: 2px;
 				position: absolute;
-				background-color: $burger-color;
+				background-color: $color-0;
 				transition: all $transition-duration ease-in-out;
 			}
 

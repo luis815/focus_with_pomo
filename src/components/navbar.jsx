@@ -16,21 +16,26 @@ export default () => {
 			<div
 				className={classNames({ directory: true, active: isHamburgerActive })}
 			>
-				<ul className="pages">
+				<ul>
 					<li>
-						<Link to="/" onClick={toggleHamburger}>Home</Link>
+						<Link to="/" onClick={toggleHamburger}>
+							Home
+						</Link>
 					</li>
 					<li>
-						<Link to="/settings" onClick={toggleHamburger}>Settings</Link>
-					</li>
-				</ul>
-				<span />
-				<ul className="actions">
-					<li>
-						<Link to="/" onClick={toggleHamburger}>Log In</Link>
+						<Link to="/settings" onClick={toggleHamburger}>
+							Settings
+						</Link>
 					</li>
 					<li>
-						<a href="#" target="_blank">Buy me a Coffee</a>
+						<Link to="/" onClick={toggleHamburger} className="button">
+							Log In
+						</Link>
+					</li>
+					<li>
+						<a href="#" target="_blank" className="button">
+							Buy me a Coffee
+						</a>
 					</li>
 				</ul>
 			</div>
