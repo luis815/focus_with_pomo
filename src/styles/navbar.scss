@@ -1,0 +1,165 @@
+$bar-bg: navy;
+$bar-color: white;
+$bar-height: 4rem;
+$bar-padding: 0.5rem 1rem;
+
+$burger-color: white;
+
+$transition-duration: 0.25s;
+
+nav {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	.directory {
+		background-color: $bar-bg;
+		color: $bar-color;
+		display: grid;
+		place-items: center;
+		padding: 2rem 0;
+		border-top-left-radius: 2rem;
+		border-top-right-radius: 2rem;
+		transform: translateY(100%);
+		transition: all $transition-duration ease-in-out;
+
+		&.active {
+			transform: translateY(0);
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+            li:not(:last-of-type) {
+                margin-bottom: 1rem;
+            }
+		}
+
+		.pages {
+			li {
+				a {
+					text-decoration: none;
+					color: $bar-color;
+					display: block;
+					text-align: center;
+                    font-size: 1.25rem;
+				}
+			}
+		}
+
+		span {
+			display: block;
+			height: 2px;
+			width: 100%;
+			margin: 1rem 0;
+			background-color: $burger-color;
+            width: 75%;
+		}
+
+		.actions {
+			li {
+				display: flex;
+				flex-direction: column;
+
+				a {
+                    text-decoration: none;
+                    text-align: center;
+					padding: 0.25rem 2rem;
+					background-color: transparent;
+					color: $bar-color;
+					border: 1px solid $burger-color;
+					border-radius: 99rem;
+                    font-size: 1.25rem;
+				}
+			}
+		}
+	}
+
+	.bar {
+		background-color: $bar-bg;
+		color: white;
+		height: $bar-height;
+		display: flex;
+		flex-direction: row;
+		padding: $bar-padding;
+		position: relative;
+		border-top: 1px solid $burger-color;
+
+		.brand {
+			display: flex;
+			flex-direction: row;
+
+            img {
+                height: 100%;
+            }
+
+			.text {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin-left: 0.5rem;
+
+				span:nth-of-type(2) {
+					font-weight: 300;
+					font-size: 0.8rem;
+					align-self: center;
+				}
+			}
+		}
+
+		.burger {
+			aspect-ratio: 1;
+			margin: 0.5rem 0.5rem 0.5rem auto;
+			border: 1px solid $burger-color;
+
+			position: relative;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			span,
+			span::before,
+			span::after {
+				height: 2px;
+				position: absolute;
+				background-color: $burger-color;
+				transition: all $transition-duration ease-in-out;
+			}
+
+			span {
+				width: calc(100% - (2 * 0.75rem));
+			}
+
+			span::before,
+			span::after {
+				content: "";
+				width: 100%;
+			}
+
+			span::before {
+				transform: translateY(-0.5rem);
+			}
+			span::after {
+				transform: translateY(0.5rem);
+			}
+
+			&.active {
+				span {
+					background-color: transparent;
+				}
+
+				span::before {
+					transform: rotate(45deg);
+				}
+				span::after {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}
