@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
-import "../scss/navbar.scss";
+import "../styles/navbar.scss";
 
 export default () => {
 	const [isHamburgerActive, setIsHamburgerActive] = useState(false);

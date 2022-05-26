@@ -8,7 +8,7 @@ import HomeView from "./views/home.jsx";
 import SettingsView from "./views/settings.jsx";
 import PageNotFoundView from "./views/page-not-found.jsx";
 
-import "./scss/base.scss";
+import "./styles/base.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<StrictMode>
