@@ -9,13 +9,6 @@ $bar-mobile-height: 4rem;
 
 $transition-duration: 0.25s;
 
-$bar-bg: #f2f2f2;
-$bar-color: black;
-$bar-height: 4rem;
-$bar-padding: 0.5rem 1rem;
-
-$burger-color: black;
-
 nav {
 	position: fixed;
 	bottom: 0;
@@ -37,9 +30,15 @@ nav {
 		transition: all $transition-duration ease-in-out;
 		opacity: 0;
 
+		position: absolute;
+		left:0;
+		right: 0;
+		bottom: calc( $bar-mobile-height);
+
 		&.active {
 			transform: translateY(0);
 			opacity: 1;
+			display: block;
 		}
 
 		ul {
