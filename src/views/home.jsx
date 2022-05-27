@@ -1,13 +1,16 @@
 import React, { Fragment } from "react";
 
+import "../styles/home.scss";
+
+
 export default () => {
 	return (
 		<Fragment>
-			<div className="greeting">
+			<div id="greeting">
 				<h1>Hello!</h1>
 			</div>
-			<div className="timer"></div>
-			<div className="reminders"></div>
+			<div id="timer"></div>
+			<div id="reminders"></div>
 		</Fragment>
 	);
 };

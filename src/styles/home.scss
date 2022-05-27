@@ -1,0 +1,16 @@
+$greeting-height: 25vh;
+
+#greeting {
+    height: $greeting-height;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 1.4rem;
+    text-align: center;
+
+    h1 {
+        margin: 0;
+    }
+}
