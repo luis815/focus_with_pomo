@@ -11,10 +11,11 @@ export default ({ percent }) => {
 					cy="50"
 					r="50"
 					style={{
-						strokeDashoffset: `calc(625px - (625px * ${50}) / 100)`,
+						strokeDashoffset: 314 - (314 * 75) / 100,
 					}}
 				/>
 			</svg>
+			<span>15:00</span>
 		</div>
 	);
 };

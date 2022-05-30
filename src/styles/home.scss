@@ -23,11 +23,13 @@ $progress-diameter: 12rem;
 	.progress-container {
 		display: grid;
 		place-items: center;
+		position: relative;
 
 		svg {
 			display: block;
 			width: 10rem;
 			height: 10rem;
+			transform: rotate(-90deg);
 
 			circle {
 				fill: none;
@@ -37,11 +39,18 @@ $progress-diameter: 12rem;
 			}
 
 			.foreground {
-				stroke: $monochrome-2;
-
-				stroke-dasharray: 625px;
-				stroke: #3498db;
+				stroke: lightgreen;
+				stroke-dasharray: 314;
 			}
+		}
+
+		span {
+			position: absolute;
+			display: block;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 1.5rem;
 		}
 	}
 }
