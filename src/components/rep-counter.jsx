@@ -5,9 +5,9 @@ export default ({ total, current }) => {
 
 	for (let i = 0; i < total; ++i) {
 		if (i < current) {
-			elements.push(<span className="complete"></span>);
+			elements.push(<span className="complete" key={i}></span>);
 		} else {
-			elements.push(<span></span>);
+			elements.push(<span key={i}></span>);
 		}
 	}
 
