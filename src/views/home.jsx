@@ -11,7 +11,7 @@ export default () => {
 				<h1>Hello!</h1>
 			</div>
 			<div id="timer">
-				<ProgressBar />
+				<ProgressBar percent={75} time="15:00" />
 			</div>
 			<div id="reminders"></div>
 		</Fragment>

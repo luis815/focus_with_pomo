@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ percent }) => {
+export default ({ percent, time }) => {
 	return (
 		<div className="progress-container">
 			<svg viewBox="-5 -5 110 110" xmlns="http://www.w3.org/2000/svg">
@@ -11,11 +11,11 @@ export default ({ percent }) => {
 					cy="50"
 					r="50"
 					style={{
-						strokeDashoffset: 314 - (314 * 75) / 100,
+						strokeDashoffset: 314 - (314 * percent) / 100,
 					}}
 				/>
 			</svg>
-			<span>15:00</span>
+			<span>{time}</span>
 		</div>
 	);
 };
