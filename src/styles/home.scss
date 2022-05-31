@@ -53,4 +53,27 @@ $progress-diameter: 12rem;
 			font-size: 1.5rem;
 		}
 	}
+	
+	.rep-counter {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-top: 1rem;
+
+		span {
+			display: block;
+			width: 1rem;
+			height: 1rem;
+			background-color: $monochrome-0;
+			border-radius: 50%;
+
+			&:not(:last-of-type) {
+				margin-right: 0.25rem;
+			}
+
+			&.complete {
+				background-color: lightgreen;
+			}
+		}
+	}
 }
