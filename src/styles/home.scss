@@ -77,3 +77,66 @@ $progress-diameter: 12rem;
 		}
 	}
 }
+
+#reminders {
+	margin: 4rem 2rem 0 2rem;
+
+	.todo-list {
+		&:not(:last-of-type) {
+			margin-bottom: 2rem;
+		}
+		h2 {
+			text-align: center;
+			font-size: 2rem;
+			margin: 0 0 1.5rem 0;
+		}
+
+		.list {
+			.item-container {
+				display: flex;
+				flex-direction: column;
+				position: relative;
+				
+				&:not(:last-of-type) {
+					margin-bottom: 0.5rem;
+				}
+				
+				input[type="text"] {
+					border: none;
+					height: 3rem;
+					border-radius: 1rem;
+					background-color: $monochrome-0;
+					padding: 0 5rem 0 2rem;
+				}
+
+				button {
+					color: $monochrome-2;
+					font-size: 3rem;
+
+					margin: 0;
+					padding: 0;
+					border: none;
+					background-color: transparent;
+
+					display: block;
+					position: absolute;
+					right: 0;
+
+					height: 3rem;
+					width: 3rem;
+
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+
+					transform: rotate(45deg);
+
+					&.new {
+						transform: rotate(0);
+					}
+				}
+			}
+		}
+	}
+}
