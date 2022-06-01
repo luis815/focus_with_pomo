@@ -1,26 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+	getAuth,
+	signInWithPopup,
+	GoogleAuthProvider,
+	signOut,
+} from "firebase/auth";
+
+import { UserContext } from "./context";
 
 export default () => {
 	const [isHamburgerActive, setIsHamburgerActive] = useState(false);
+
+	const [user, setUser] = useContext(UserContext);
 
 	const toggleHamburger = () => {
 		setIsHamburgerActive(!isHamburgerActive);
 	};
 
-	const handleLogIn = async () => {
+	const handleAuth = async () => {
 		toggleHamburger();
 		const auth = getAuth();
-		const provider = new GoogleAuthProvider();
 
-		try {
-			const result = await signInWithPopup(auth, provider);
-			const credential = GoogleAuthProvider.credentialFromResult(result);
-			const user = result.user;
-		} catch (err) {
-			console.log(err);
+		if (user === null) {
+			const provider = new GoogleAuthProvider();
+
+			try {
+				await signInWithPopup(auth, provider);
+			} catch (err) {
+				console.log(err);
+			}
+		} else {
+			try {
+				await signOut(auth);
+			} catch (err) {
+				console.log(err);
+			}
 		}
 	};
 
@@ -41,8 +57,8 @@ export default () => {
 						</Link>
 					</li>
 					<li>
-						<button type="button" onClick={handleLogIn} className="button">
-							Log In
+						<button type="button" onClick={handleAuth} className="button">
+							{user ? "Sign Out" : "Log In"}
 						</button>
 					</li>
 					<li>

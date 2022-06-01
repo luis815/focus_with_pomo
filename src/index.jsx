@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+import { ContextProvider } from "./components/context.jsx";
 import DefaultLayout from "./components/default-layout.jsx";
 
 import HomeView from "./views/home.jsx";
@@ -27,14 +28,16 @@ const analytics = getAnalytics(app);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<BrowserRouter>
-			<Routes>
-				<Route element={<DefaultLayout />}>
-					<Route path="/settings" element={<SettingsView />} />
-					<Route path="/" element={<HomeView />} />
-				</Route>
-				<Route path="*" element={<PageNotFoundView />} />
-			</Routes>
-		</BrowserRouter>
+		<ContextProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route element={<DefaultLayout />}>
+						<Route path="/settings" element={<SettingsView />} />
+						<Route path="/" element={<HomeView />} />
+					</Route>
+					<Route path="*" element={<PageNotFoundView />} />
+				</Routes>
+			</BrowserRouter>
+		</ContextProvider>
 	</StrictMode>
 );
