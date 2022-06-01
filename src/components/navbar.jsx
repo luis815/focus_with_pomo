@@ -1,12 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default () => {
 	const [isHamburgerActive, setIsHamburgerActive] = useState(false);
 
 	const toggleHamburger = () => {
 		setIsHamburgerActive(!isHamburgerActive);
+	};
+
+	const handleLogIn = async () => {
+		toggleHamburger();
+		const auth = getAuth();
+		const provider = new GoogleAuthProvider();
+
+		try {
+			const result = await signInWithPopup(auth, provider);
+			const credential = GoogleAuthProvider.credentialFromResult(result);
+			const user = result.user;
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	return (
@@ -26,9 +41,9 @@ export default () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/" onClick={toggleHamburger} className="button">
+						<button type="button" onClick={handleLogIn} className="button">
 							Log In
-						</Link>
+						</button>
 					</li>
 					<li>
 						<a href="#" target="_blank" className="button">

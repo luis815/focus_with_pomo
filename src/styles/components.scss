@@ -61,7 +61,7 @@ $progress-ring-diameter: 10rem;
 					margin: 1rem 0;
 				}
 
-				a {
+				a, button {
 					text-decoration: none;
 					text-align: center;
 					font-size: 1.25rem;
@@ -69,7 +69,7 @@ $progress-ring-diameter: 10rem;
 					display: block;
 				}
 
-				a.button {
+				a.button, button {
 					background-color: transparent;
 					border: 1px solid $color-0;
 					border-radius: 99rem;
