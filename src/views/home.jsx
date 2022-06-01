@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import ProgressRing from "../components/progress-ring.jsx";
 import RepCounter from "../components/rep-counter.jsx";
-import TodoList from "../components/todo-list.jsx";
+import Reminders from "../components/reminders.jsx";
 
 import "../styles/home.scss";
 
@@ -14,8 +14,8 @@ export default () => {
 			</div>
 			<ProgressRing percent={75} time="15:00" />
 			<RepCounter total={4} current={1} />
-			<TodoList heading={"Focus"} />
-			<TodoList heading={"To Do"} />
+			<Reminders heading={"Focus"} />
+			<Reminders heading={"To Do"} />
 		</Fragment>
 	);
 };
