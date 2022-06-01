@@ -13,7 +13,7 @@ import { UserContext } from "./context";
 export default () => {
 	const [isHamburgerActive, setIsHamburgerActive] = useState(false);
 
-	const [user, setUser] = useContext(UserContext);
+	const [user] = useContext(UserContext);
 
 	const toggleHamburger = () => {
 		setIsHamburgerActive(!isHamburgerActive);
