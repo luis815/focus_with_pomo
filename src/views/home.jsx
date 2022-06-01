@@ -1,4 +1,11 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
+import {
+	getFirestore,
+	doc,
+	getDoc,
+	setDoc,
+	serverTimestamp,
+} from "firebase/firestore";
 
 import ProgressRing from "../components/progress-ring.jsx";
 import RepCounter from "../components/rep-counter.jsx";
@@ -11,7 +18,19 @@ export default () => {
 
 	const [user] = useContext(UserContext);
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		if (user !== null) {
+			const db = getFirestore();
+			const docRef = doc(db, "users", user.uid);
+
+			getDoc(docRef).then((docSnap) => {
+				if (!docSnap.exists()) {
+					setDoc(docRef, { created: serverTimestamp(), focusList, backlog });
+				}
+			});
+		}
+	}, [user]);
+
 	return (
 		<div className="home">
 			<div className="hero">
