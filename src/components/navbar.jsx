@@ -10,7 +10,7 @@ export default () => {
 	};
 
 	return (
-		<nav>
+		<nav className="navbar">
 			<div
 				className={classNames({ directory: true, active: isHamburgerActive })}
 			>
