@@ -260,34 +260,58 @@ $progress-ring-diameter: 10rem;
 				height: 3rem;
 				border-radius: 1rem;
 				background-color: $monochrome-0;
-				padding: 0 5rem 0 2rem;
+				padding: 0 3rem 0 1rem;
+
+				&:focus {
+					outline: 0.2rem solid lightblue;
+				}
 			}
 
 			button {
-				color: $monochrome-2;
-				font-size: 3rem;
-
 				margin: 0;
 				padding: 0;
 				border: none;
 				background-color: transparent;
 
-				display: block;
 				position: absolute;
 				right: 0;
 
 				height: 3rem;
 				width: 3rem;
+				border-radius: 1rem;
 
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 
-				transform: rotate(45deg);
+				@keyframes zoom-in-and-out {
+					50% {
+						transform: scale(1.25);
+					}
 
-				&.new {
+					100% {
+						transform: scale(1);
+					}
+				}
+
+				&::before {
+					content: "+";
+					position: absolute;
+					color: $monochrome-2;
+					font-size: 2rem;
+					transform: rotate(45deg);
+					transition: all 0.25s ease-in-out;
+				}
+
+				&.new::before {
 					transform: rotate(0);
+				}
+
+				&:hover::before {
+					animation-name: zoom-in-and-out;
+					animation-duration: 0.5s;
+					color: $monochrome-3;
 				}
 			}
 		}
