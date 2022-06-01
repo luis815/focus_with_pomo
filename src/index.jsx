@@ -2,7 +2,7 @@ import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import DefaultLayout from "./layouts/default.jsx";
+import DefaultLayout from "./components/default-layout.jsx";
 
 import HomeView from "./views/home.jsx";
 import SettingsView from "./views/settings.jsx";

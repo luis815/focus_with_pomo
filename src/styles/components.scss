@@ -5,6 +5,12 @@ $nav-transition-duration: 0.25s;
 
 $progress-ring-diameter: 10rem;
 
+.default-layout {
+	.view {
+		margin-bottom: 6rem;
+	}
+}
+
 nav {
 	position: fixed;
 	bottom: 0;
@@ -28,9 +34,9 @@ nav {
 		opacity: 0;
 
 		position: absolute;
-		left:0;
+		left: 0;
 		right: 0;
-		bottom: calc( $nav-mobile-height);
+		bottom: calc($nav-mobile-height);
 
 		&.active {
 			transform: translateY(0);
