@@ -4,19 +4,8 @@ $greeting-height: 25vh;
 
 $progress-diameter: 12rem;
 
-#greeting {
-	height: $greeting-height;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-
-	font-size: 1.4rem;
+.hero {
 	text-align: center;
-
-	h1 {
-		margin: 0;
-	}
 }
 
 #timer {

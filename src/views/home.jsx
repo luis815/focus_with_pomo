@@ -9,7 +9,7 @@ import "../styles/home.scss";
 export default () => {
 	return (
 		<div className="view">
-			<div id="greeting">
+			<div className="hero">
 				<h1>Hello!</h1>
 			</div>
 			<div id="timer">
