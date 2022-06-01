@@ -9,7 +9,9 @@ export default () => {
 	return (
 		<Fragment>
 			<Navbar />
-			<Outlet />
+			<div className="view">
+				<Outlet />
+			</div>
 		</Fragment>
 	);
 };
