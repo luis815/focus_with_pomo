@@ -14,10 +14,8 @@ export default () => {
 			</div>
 			<ProgressRing percent={75} time="15:00" />
 			<RepCounter total={4} current={1} />
-			<div id="reminders">
-				<TodoList heading={"Focus"} />
-				<TodoList heading={"To Do"} />
-			</div>
+			<TodoList heading={"Focus"} />
+			<TodoList heading={"To Do"} />
 		</Fragment>
 	);
 };
