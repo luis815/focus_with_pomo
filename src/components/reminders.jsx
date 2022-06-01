@@ -2,7 +2,7 @@ import React from "react";
 
 export default ({ heading, list, setList }) => {
 	return (
-		<div className="todo-list">
+		<div className="reminders">
 			<h2>{heading}</h2>
 			<div className="list">
 				<div className="item-container">
