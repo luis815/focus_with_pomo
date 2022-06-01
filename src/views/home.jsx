@@ -4,11 +4,9 @@ import ProgressRing from "../components/progress-ring.jsx";
 import RepCounter from "../components/rep-counter.jsx";
 import Reminders from "../components/reminders.jsx";
 
-import "../styles/home.scss";
-
 export default () => {
 	return (
-		<Fragment>
+		<div className="home">
 			<div className="hero">
 				<h1>Hello!</h1>
 			</div>
@@ -16,6 +14,6 @@ export default () => {
 			<RepCounter total={4} current={1} />
 			<Reminders heading={"Focus"} />
 			<Reminders heading={"To Do"} />
-		</Fragment>
+		</div>
 	);
 };
