@@ -8,40 +8,6 @@ $progress-diameter: 12rem;
 	text-align: center;
 }
 
-.progress-ring {
-	display: grid;
-	place-items: center;
-	position: relative;
-
-	svg {
-		display: block;
-		width: 10rem;
-		height: 10rem;
-		transform: rotate(-90deg);
-
-		circle {
-			fill: none;
-			stroke: $monochrome-0;
-			stroke-width: 10;
-			stroke-linecap: round;
-		}
-
-		.foreground {
-			stroke: lightgreen;
-			stroke-dasharray: 314;
-		}
-	}
-
-	span {
-		position: absolute;
-		display: block;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		font-size: 1.5rem;
-	}
-}
-
 .rep-counter {
 	display: flex;
 	flex-direction: row;
