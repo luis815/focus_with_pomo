@@ -8,61 +8,59 @@ $progress-diameter: 12rem;
 	text-align: center;
 }
 
-#timer {
-	.progress-container {
-		display: grid;
-		place-items: center;
-		position: relative;
+.progress-ring {
+	display: grid;
+	place-items: center;
+	position: relative;
 
-		svg {
-			display: block;
-			width: 10rem;
-			height: 10rem;
-			transform: rotate(-90deg);
+	svg {
+		display: block;
+		width: 10rem;
+		height: 10rem;
+		transform: rotate(-90deg);
 
-			circle {
-				fill: none;
-				stroke: $monochrome-0;
-				stroke-width: 10;
-				stroke-linecap: round;
-			}
-
-			.foreground {
-				stroke: lightgreen;
-				stroke-dasharray: 314;
-			}
+		circle {
+			fill: none;
+			stroke: $monochrome-0;
+			stroke-width: 10;
+			stroke-linecap: round;
 		}
 
-		span {
-			position: absolute;
-			display: block;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			font-size: 1.5rem;
+		.foreground {
+			stroke: lightgreen;
+			stroke-dasharray: 314;
 		}
 	}
-	
-	.rep-counter {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		margin-top: 1rem;
 
-		span {
-			display: block;
-			width: 1rem;
-			height: 1rem;
-			background-color: $monochrome-0;
-			border-radius: 50%;
+	span {
+		position: absolute;
+		display: block;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1.5rem;
+	}
+}
 
-			&:not(:last-of-type) {
-				margin-right: 0.25rem;
-			}
+.rep-counter {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 1rem;
 
-			&.complete {
-				background-color: lightgreen;
-			}
+	span {
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		background-color: $monochrome-0;
+		border-radius: 50%;
+
+		&:not(:last-of-type) {
+			margin-right: 0.25rem;
+		}
+
+		&.complete {
+			background-color: lightgreen;
 		}
 	}
 }
@@ -85,11 +83,11 @@ $progress-diameter: 12rem;
 				display: flex;
 				flex-direction: column;
 				position: relative;
-				
+
 				&:not(:last-of-type) {
 					margin-bottom: 0.5rem;
 				}
-				
+
 				input[type="text"] {
 					border: none;
 					height: 3rem;
