@@ -1,5 +1,7 @@
 @import "./variables.scss";
 
+$progress-ring-diameter: 10rem;
+
 .hero {
 	height: $hero-height;
 	margin: 0 $view-mx-mobile;
@@ -22,8 +24,8 @@
 
 	svg {
 		display: block;
-		width: 10rem;
-		height: 10rem;
+		width: $progress-ring-diameter;
+		height: $progress-ring-diameter;
 		transform: rotate(-90deg);
 
 		circle {
