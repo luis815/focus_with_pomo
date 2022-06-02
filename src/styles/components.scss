@@ -322,3 +322,34 @@ $progress-ring-diameter: 10rem;
 		}
 	}
 }
+
+.controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	button {
+		padding: 0;
+		border: none;
+		height: 3rem;
+		width: 3rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: $monochrome-0;
+		border-radius: 50%;
+
+		&:not(:last-of-type) {
+			margin-right: 0.5rem;
+		}
+
+		i {
+			font-size: 1.2rem;
+		}
+
+		.fa-play {
+			transform: translateX(0.1rem);
+		}
+	}
+}

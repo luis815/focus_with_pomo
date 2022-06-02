@@ -7,8 +7,8 @@ export const SettingsContext = createContext(null);
 export const ContextProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [settings, setSettings] = useState({
-		workDuration: 25,
-		breakDuration: 5,
+		workDuration: 1500,
+		breakDuration: 300,
 		reps: 4,
 		sound: true,
 	});
