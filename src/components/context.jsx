@@ -12,7 +12,7 @@ export const ContextProvider = ({ children }) => {
 			if (user) {
 				setUser(user);
 			} else {
-                setUser(null);
+                setUser(false);
             }
 		});
 	}, []);

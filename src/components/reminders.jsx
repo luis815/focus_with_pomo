@@ -4,12 +4,10 @@ export default ({ heading, list, setList }) => {
 	const [newItem, setNewItem] = useState("");
 
 	const handleNewItem = () => {
-		if (newItem.length === 0) {
-			return;
+		if (newItem.length !== 0) {
+			setList([...list, newItem]);
+			setNewItem("");
 		}
-
-		setList([...list, newItem]);
-		setNewItem("");
 	};
 
 	const handleDeleteItem = (index) => {
@@ -45,11 +43,7 @@ export default ({ heading, list, setList }) => {
 						onChange={(e) => setNewItem(e.target.value)}
 						onKeyDown={(e) => (e.key === "Enter" ? handleNewItem() : null)}
 					/>
-					<button
-						className="new"
-						type="button"
-						onClick={handleNewItem}
-					/>
+					<button className="new" type="button" onClick={handleNewItem} />
 				</div>
 			</div>
 		</div>

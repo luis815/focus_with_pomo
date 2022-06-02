@@ -21,9 +21,14 @@ export default () => {
 
 	const handleAuth = async () => {
 		toggleHamburger();
-		const auth = getAuth();
 
 		if (user === null) {
+			return;
+		}
+
+		const auth = getAuth();
+
+		if (user === false) {
 			const provider = new GoogleAuthProvider();
 
 			try {
