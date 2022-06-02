@@ -67,7 +67,7 @@ export default () => {
 						</button>
 					</li>
 					<li>
-						<a href="#" target="_blank" className="button">
+						<a href="https://www.buymeacoffee.com/snowfoxstudio" target="_blank" className="button">
 							Buy me a Coffee
 						</a>
 					</li>
