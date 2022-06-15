@@ -31,10 +31,10 @@ const analytics = getAnalytics(app);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<PomoContextProvider>
-			<RemindersContextProvider>
-				<SettingsContextProvider>
-					<UserContextProvider>
+		<UserContextProvider>
+			<PomoContextProvider>
+				<RemindersContextProvider>
+					<SettingsContextProvider>
 						<BrowserRouter>
 							<Routes>
 								<Route element={<DefaultLayout />}>
@@ -44,9 +44,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 								<Route path="*" element={<PageNotFoundView />} />
 							</Routes>
 						</BrowserRouter>
-					</UserContextProvider>
-				</SettingsContextProvider>
-			</RemindersContextProvider>
-		</PomoContextProvider>
+					</SettingsContextProvider>
+				</RemindersContextProvider>
+			</PomoContextProvider>
+		</UserContextProvider>
 	</StrictMode>
 );
