@@ -30,23 +30,21 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<StrictMode>
-		<UserContextProvider>
+	<UserContextProvider>
+		<SettingsContextProvider>
 			<PomoContextProvider>
 				<RemindersContextProvider>
-					<SettingsContextProvider>
-						<BrowserRouter>
-							<Routes>
-								<Route element={<DefaultLayout />}>
-									<Route path="/settings" element={<SettingsView />} />
-									<Route path="/" element={<HomeView />} />
-								</Route>
-								<Route path="*" element={<PageNotFoundView />} />
-							</Routes>
-						</BrowserRouter>
-					</SettingsContextProvider>
+					<BrowserRouter>
+						<Routes>
+							<Route element={<DefaultLayout />}>
+								<Route path="/settings" element={<SettingsView />} />
+								<Route path="/" element={<HomeView />} />
+							</Route>
+							<Route path="*" element={<PageNotFoundView />} />
+						</Routes>
+					</BrowserRouter>
 				</RemindersContextProvider>
 			</PomoContextProvider>
-		</UserContextProvider>
-	</StrictMode>
+		</SettingsContextProvider>
+	</UserContextProvider>
 );

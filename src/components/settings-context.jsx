@@ -19,6 +19,9 @@ export const SettingsContextProvider = ({ children }) => {
 				updateSettings(updatedSettings) {
 					setSettings({ ...settings, ...updatedSettings });
 				},
+				onToggleSound() {
+					setSettings({ ...settings, sound: !settings.sound });
+				},
 			}}
 		>
 			{children}

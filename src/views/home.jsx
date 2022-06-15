@@ -14,8 +14,8 @@ export default () => {
 	const { user } = useContext(UserContext);
 	const { reminders, updateFocus, updateBacklog } =
 		useContext(RemindersContext);
-	const { pomoState } = useContext(PomoContext);
-	const { settings } = useContext(SettingsContext);
+	const { pomoState, onPlay, onPause, onStop } = useContext(PomoContext);
+	const { settings, onToggleSound } = useContext(SettingsContext);
 
 	return (
 		<div className="home">
@@ -32,15 +32,16 @@ export default () => {
 			<ProgressRing
 				percent={pomoState.progressPercent}
 				time={pomoState.timerText}
+				timerType={pomoState.timerType}
 			/>
 			<RepCounter total={settings.totalReps} current={pomoState.currentRep} />
 			<Controls
-				isRunning={false}
-				sound={false}
-				onPlay={() => null}
-				onPause={() => null}
-				onStop={() => null}
-				onToggleSound={() => null}
+				isRunning={pomoState.isRunning}
+				sound={settings.sound}
+				onPlay={onPlay}
+				onPause={onPause}
+				onStop={onStop}
+				onToggleSound={onToggleSound}
 			/>
 			<Reminders
 				heading={"Focus"}

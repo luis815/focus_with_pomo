@@ -3,7 +3,7 @@ import React from "react";
 export default ({ total, current }) => {
 	const elements = [];
 
-	for (let i = 0; i < total; ++i) {
+	for (let i = 0; i < total - 1; ++i) {
 		if (i < current) {
 			elements.push(<span className="complete" key={i}></span>);
 		} else {

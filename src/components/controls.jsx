@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 export default ({ isRunning, sound, onPlay, onPause, onStop, onToggleSound }) => {
 	return (
@@ -6,9 +6,9 @@ export default ({ isRunning, sound, onPlay, onPause, onStop, onToggleSound }) =>
 			<button type="button" onClick={onStop}>
 				<i className="fa-solid fa-stop"></i>
 			</button>
-			<button type="button" onClick={ isRunning ? onPause() : onPlay()}>
+			<button type="button" onClick={ isRunning ? onPause : onPlay}>
 				{isRunning ? (
-					<i className="fa-solid fa-puase"></i>
+					<i className="fa-solid fa-pause"></i>
 				) : (
 					<i className="fa-solid fa-play"></i>
 				)}
