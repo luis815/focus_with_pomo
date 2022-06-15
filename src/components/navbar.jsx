@@ -1,47 +1,27 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import {
-	getAuth,
-	signInWithPopup,
-	GoogleAuthProvider,
-	signOut,
-} from "firebase/auth";
 
-import { UserContext } from "./context";
+import UserContext from "./user-context.jsx";
 
 export default () => {
 	const [isHamburgerActive, setIsHamburgerActive] = useState(false);
 
-	const [user] = useContext(UserContext);
+	const { user, signIn, signOut } = useContext(UserContext);
 
-	const toggleHamburger = () => {
-		setIsHamburgerActive(!isHamburgerActive);
-	};
+	const toggleHamburger = () => setIsHamburgerActive(!isHamburgerActive);
 
 	const handleAuth = async () => {
 		toggleHamburger();
 
-		if (user === null) {
-			return;
-		}
-
-		const auth = getAuth();
-
-		if (user === false) {
-			const provider = new GoogleAuthProvider();
-
-			try {
-				await signInWithPopup(auth, provider);
-			} catch (err) {
-				console.log(err);
-			}
-		} else {
-			try {
-				await signOut(auth);
-			} catch (err) {
-				console.log(err);
-			}
+		switch (user) {
+			case null:
+				break;
+			case false:
+				await signIn();
+				break;
+			default:
+				await signOut();
 		}
 	};
 
@@ -67,7 +47,11 @@ export default () => {
 						</button>
 					</li>
 					<li>
-						<a href="https://www.buymeacoffee.com/snowfoxstudio" target="_blank" className="button">
+						<a
+							href="https://www.buymeacoffee.com/snowfoxstudio"
+							target="_blank"
+							className="button"
+						>
 							Buy me a Coffee
 						</a>
 					</li>

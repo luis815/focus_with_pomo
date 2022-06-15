@@ -4,7 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
-import { ContextProvider } from "./components/context.jsx";
+import { PomoContextProvider } from "./components/pomo-context.jsx";
+import { RemindersContextProvider } from "./components/reminders-context.jsx";
+import { SettingsContextProvider } from "./components/settings-context.jsx";
+import { UserContextProvider } from "./components/user-context.jsx";
 import DefaultLayout from "./components/default-layout.jsx";
 
 import HomeView from "./views/home.jsx";
@@ -28,16 +31,22 @@ const analytics = getAnalytics(app);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<ContextProvider>
-			<BrowserRouter>
-				<Routes>
-					<Route element={<DefaultLayout />}>
-						<Route path="/settings" element={<SettingsView />} />
-						<Route path="/" element={<HomeView />} />
-					</Route>
-					<Route path="*" element={<PageNotFoundView />} />
-				</Routes>
-			</BrowserRouter>
-		</ContextProvider>
+		<PomoContextProvider>
+			<RemindersContextProvider>
+				<SettingsContextProvider>
+					<UserContextProvider>
+						<BrowserRouter>
+							<Routes>
+								<Route element={<DefaultLayout />}>
+									<Route path="/settings" element={<SettingsView />} />
+									<Route path="/" element={<HomeView />} />
+								</Route>
+								<Route path="*" element={<PageNotFoundView />} />
+							</Routes>
+						</BrowserRouter>
+					</UserContextProvider>
+				</SettingsContextProvider>
+			</RemindersContextProvider>
+		</PomoContextProvider>
 	</StrictMode>
 );

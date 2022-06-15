@@ -3,9 +3,24 @@
 .home {
 	.hero {
 		text-align: center;
+
+		h1,
+		h2 {
+			margin: 0;
+		}
+
+		h1:only-child, h2:nth-child(2) {
+			font-size: 2.5rem;
+		}
+
+		h1 {
+			font-weight: 300;
+			font-size: 1.25rem;
+		}
 	}
 
-	.rep-counter, .controls {
+	.rep-counter,
+	.controls {
 		margin-top: 1rem;
 	}
 
