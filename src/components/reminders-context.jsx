@@ -28,7 +28,7 @@ export const RemindersContextProvider = ({ children }) => {
 		if (localStorageReminders === null) {
 			localStorageReminders = reminders;
 		} else {
-			JSON.parse(localStorageReminders);
+			localStorageReminders = JSON.parse(localStorageReminders);
 		}
 
 		switch (user) {
