@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const SettingsContext = createContext(null);
 
@@ -12,12 +12,24 @@ export const SettingsContextProvider = ({ children }) => {
 		sound: true,
 	});
 
+	useEffect(() => {
+		const localStorageSettings = localStorage.getItem("settings");
+
+		if (localStorageSettings !== null) {
+			setSettings(JSON.parse(localStorageSettings));
+		}
+	}, []);
+
 	return (
 		<SettingsContext.Provider
 			value={{
 				settings,
 				updateSettings(updatedSettings) {
 					setSettings({ ...settings, ...updatedSettings });
+					localStorage.setItem(
+						"settings",
+						JSON.stringify({ ...settings, ...updatedSettings })
+					);
 				},
 				onToggleSound() {
 					setSettings({ ...settings, sound: !settings.sound });

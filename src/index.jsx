@@ -1,6 +1,6 @@
-import React, { StrictMode } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
@@ -12,7 +12,6 @@ import DefaultLayout from "./components/default-layout.jsx";
 
 import HomeView from "./views/home.jsx";
 import SettingsView from "./views/settings.jsx";
-import PageNotFoundView from "./views/page-not-found.jsx";
 
 import "./styles/base.scss";
 
@@ -40,7 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 								<Route path="/settings" element={<SettingsView />} />
 								<Route path="/" element={<HomeView />} />
 							</Route>
-							<Route path="*" element={<PageNotFoundView />} />
+							<Route path="*" element={<Navigate to="/" />} />
 						</Routes>
 					</BrowserRouter>
 				</RemindersContextProvider>

@@ -31,6 +31,49 @@
 	}
 }
 
+.settings {
+	.hero {
+		text-align: center;
+		
+		h1 {
+			font-weight: 300;
+			font-size: 2.5rem;
+		}
+	}
+
+	.settings-container {
+		display: flex;
+		flex-direction: column;
+		margin: 0 $view-mx-mobile;
+
+		.setting-block {
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+
+			.setting-label {
+				display: block;
+				font-size: 1.2rem;
+				margin-bottom: 0.5rem;
+			}
+	
+			.range-container {
+				display: flex;
+				flex-direction: row;
+	
+				input {
+					width: 80%;
+				}
+	
+				span {
+					width: 20%;
+					text-align: end;
+				}
+			}
+		}
+	}
+}
+
 @media screen and (min-width: 1000px) {
 	.home {
 		position: relative;
@@ -41,6 +84,10 @@
 			top: 0;
 			bottom: 0;
 			right: calc((100%) / 2);
+
+			.hero {
+				height: 8rem;
+			}
 		}
 
 		.view-right {
@@ -54,5 +101,10 @@
 				margin-top: 0;
 			}
 		}
+	}
+
+	.settings .settings-container {
+		width: 400px;
+		margin: 0 auto;
 	}
 }
