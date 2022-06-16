@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
@@ -33,17 +33,29 @@ export default () => {
 				<ul>
 					<li>
 						<Link to="/" onClick={toggleHamburger}>
-							Home
+							<i className="fa-solid fa-house"></i>
+							<span>Home</span>
 						</Link>
 					</li>
 					<li>
 						<Link to="/settings" onClick={toggleHamburger}>
-							Settings
+							<i className="fa-solid fa-gear"></i>
+							<span>Settings</span>
 						</Link>
 					</li>
 					<li>
 						<button type="button" onClick={handleAuth} className="button">
-							{user ? "Sign Out" : "Log In"}
+							{user ? (
+								<Fragment>
+									<i className="fa-solid fa-right-from-bracket"></i>
+									<span>Sign Out</span>
+								</Fragment>
+							) : (
+								<Fragment>
+									<i className="fa-solid fa-right-to-bracket"></i>
+									<span>Log In</span>
+								</Fragment>
+							)}
 						</button>
 					</li>
 					<li>
@@ -52,7 +64,8 @@ export default () => {
 							target="_blank"
 							className="button"
 						>
-							Buy me a Coffee
+							<i className="fa-solid fa-hand-holding-dollar"></i>
+							<span>Buy me a Coffee</span>
 						</a>
 					</li>
 				</ul>

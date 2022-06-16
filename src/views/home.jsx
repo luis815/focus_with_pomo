@@ -19,40 +19,44 @@ export default () => {
 
 	return (
 		<div className="home">
-			<div className="hero">
-				{user ? (
-					<Fragment>
-						<h1>Welcome back,</h1>
-						<h2>{user.displayName}</h2>
-					</Fragment>
-				) : (
-					<h1>Hello!</h1>
-				)}
+			<div className="view-left">
+				<div className="hero">
+					{user ? (
+						<Fragment>
+							<h1>Welcome back,</h1>
+							<h2>{user.displayName}</h2>
+						</Fragment>
+					) : (
+						<h1>Hello!</h1>
+					)}
+				</div>
+				<ProgressRing
+					percent={pomoState.progressPercent}
+					time={pomoState.timerText}
+					timerType={pomoState.timerType}
+				/>
+				<RepCounter total={settings.totalReps} current={pomoState.currentRep} />
+				<Controls
+					isRunning={pomoState.isRunning}
+					sound={settings.sound}
+					onPlay={onPlay}
+					onPause={onPause}
+					onStop={onStop}
+					onToggleSound={onToggleSound}
+				/>
 			</div>
-			<ProgressRing
-				percent={pomoState.progressPercent}
-				time={pomoState.timerText}
-				timerType={pomoState.timerType}
-			/>
-			<RepCounter total={settings.totalReps} current={pomoState.currentRep} />
-			<Controls
-				isRunning={pomoState.isRunning}
-				sound={settings.sound}
-				onPlay={onPlay}
-				onPause={onPause}
-				onStop={onStop}
-				onToggleSound={onToggleSound}
-			/>
-			<Reminders
-				heading={"Focus"}
-				list={reminders.focus}
-				setList={updateFocus}
-			/>
-			<Reminders
-				heading={"Backlog"}
-				list={reminders.backlog}
-				setList={updateBacklog}
-			/>
+			<div className="view-right">
+				<Reminders
+					heading={"Focus"}
+					list={reminders.focus}
+					setList={updateFocus}
+				/>
+				<Reminders
+					heading={"Backlog"}
+					list={reminders.backlog}
+					setList={updateBacklog}
+				/>
+			</div>
 		</div>
 	);
 };

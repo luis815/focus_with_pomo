@@ -61,15 +61,21 @@ $progress-ring-diameter: 10rem;
 					margin: 1rem 0;
 				}
 
-				a, button {
+				a,
+				button {
 					text-decoration: none;
 					text-align: center;
 					font-size: 1.25rem;
 					color: $color-0;
 					display: block;
+
+					i {
+						display: none;
+					}
 				}
 
-				a.button, button {
+				a.button,
+				button {
 					background-color: transparent;
 					border: 1px solid $color-0;
 					border-radius: 99rem;
@@ -346,6 +352,129 @@ $progress-ring-diameter: 10rem;
 
 		.fa-play {
 			transform: translateX(0.1rem);
+		}
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.default-layout {
+		.view {
+			margin-bottom: 2rem;
+			margin-left: 6rem;
+		}
+	}
+
+	.navbar {
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: calc(100vw - 6rem);
+		display: flex;
+		flex-direction: column;
+
+		.directory {
+			z-index: 12;
+			position: absolute;
+			opacity: 1;
+			padding: 1rem;
+			transform: translateY(-50%);
+			top: 50%;
+			right: 0;
+			left: 0;
+			bottom: unset;
+			border-radius: 0;
+			background-color: transparent;
+
+			&.active {
+				transform: translateY(-50%);
+			}
+
+			ul li a,
+			ul li button,
+			ul li a.button {
+				padding: 1rem 0;
+
+				i {
+					display: block;
+				}
+
+				span {
+					display: none;
+				}
+			}
+
+			ul li button.button,
+			ul li a.button {
+				border: none;
+			}
+		}
+
+		.bar {
+			flex-direction: column;
+			height: auto;
+			flex-grow: 1;
+			padding: 1rem;
+			z-index: 11;
+
+			.brand {
+				flex-direction: column-reverse;
+
+				.text {
+					margin-left: 0;
+					margin-bottom: 0.5rem;
+					text-align: center;
+				}
+			}
+
+			.burger {
+				display: none;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	.default-layout {
+		.view {
+			margin-left: 16rem;
+		}
+	}
+
+	.navbar {
+		right: calc(100vw - 16rem);
+		.directory {
+			ul li a,
+			ul li button,
+			ul li a.button {
+				padding: 1rem 0;
+				display: flex;
+				flex-direction: row;
+				padding-left: 1rem;
+
+				i {
+					display: block;
+				}
+
+				span {
+					display: block;
+					margin-left: 0.5rem;
+				}
+			}
+		}
+
+		.bar {
+			.brand {
+				flex-direction: row;
+
+				img {
+					height: 4rem;
+				}
+
+				.text {
+					margin-bottom: 0;
+					margin-left: 0.5rem;
+				}
+			}
 		}
 	}
 }
